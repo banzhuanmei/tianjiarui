@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 引入样式 -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+  <!-- 引入组件库 -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <style>
+    #app {
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .collapse {
+      text-align: left;
+      margin-left: 30px;
+    }
+    .el-carousel__item h3 {
+      color: #475669;
+      font-size: 14px;
+      opacity: 0.75;
+      line-height: 200px;
+      margin: 0;
+    }
+    
+    .el-carousel__item:nth-child(2n) {
+      background-color: #99a9bf;
+    }
+    
+    .el-carousel__item:nth-child(2n+1) {
+      background-color: #d3dce6;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div>
+      <audio id="audio-el" controls src="./bgmusic.ogg"></audio>
+    </div>
+    <img src="./image/微信图片_20240220095723.jpg">
+    <el-collapse v-model="activeNames" class="collapse">
+      <el-collapse-item title="信息意识" name="1">
+        <div>信息意识，是信息素养的前提，是人对信息的敏感程度，是人对信息敏锐的感受力、持久的注意力和对信息价值的洞察力、判断力等。</div>
+        <div>它决定人们捕捉、判断和利用信息的自觉程度。信息意识包括主体意识、信息获取意识、信息传播意识、信息更新意识、信息安全意识等。</div>
+      </el-collapse-item>
+      <el-collapse-item title="信息知识" name="2">
+        <div>信息知识，是信息素养的基础，是有关信息的特点与类型、信息交流和传播的基本规律与方式、信息的功用及效应、信息检索等方面的知识。</div>
+        <div>信息知识不但可以使人的知识结构改变，而且能够激活原有的学科专业知识，使文化知识和专业知识发挥更大的作用。</div>
+      </el-collapse-item>
+      <el-collapse-item title="信息能力" name="3">
+        <div>信息能力，是信息素养的保证，是信息素养最重要的一个方面。它包括人获取、处理、交流、应用、创造信息的能力等。</div>
+        <div>信息能力教育，是要培养和训练人们熟练应用信息技术，在大量无序的信息中辨别出自己所需的信息，并能根据所掌握的信息知识、信息技能和信息检索工具，迅速有效地获取、利用信息，并创造出新信息的能力。</div>
+      </el-collapse-item>
+      <el-collapse-item title="信息道德" name="4">
+        <div>信息道德，是信息素养的准则，良好的信息道德是信息素养中不可缺少的一部分。</div>
+        <div>信息道德，是指在组织和利用信息时，要树立正确的法制观念，增强信息安全意识，提高对信息的判断和评价能力，准确合理地使用信息资源。</div>
+      </el-collapse-item>
+    </el-collapse>
+    <h2 style="background-color: #67C23A; color: #fff; height: 60px; line-height: 60px;">
+      假期我不仅学习了信息素养相关的知识，也享受了兴趣爱好带给我的乐趣，请大家欣赏一下我的作品吧！
+    </h2>
+    <template>
+      <el-carousel :interval="4000" type="card" height="600px">
+        <el-carousel-item v-for="item in imageList" :key="item">
+          <img :src="item" width="100%">
+        </el-carousel-item>
+      </el-carousel>
+    </template>
+    <h2 style="background-color: #67C23A; color: #fff; height: 60px; line-height: 60px;">
+      沉浸在课堂中
+    </h2>
+    <video controls src="./48_1708433489.mp4" autoplay></video>
+    <h2 style="background-color: #67C23A; color: #fff; height: 60px; line-height: 60px;">
+      六年级五班田家睿的分享到此结束啦，感谢大家的观看哦！
+    </h2>
+  </div>
+</body>
+<script>
+  new Vue({
+    el: '#app',
+    data: function() {
+      return {
+        activeNames: ['1', '2', '3', '4'],
+        imageList: [
+          './image/WechatIMG39.jpeg',
+          './image/WechatIMG40.jpeg',
+          './image/WechatIMG41.jpeg',
+          './image/WechatIMG42.jpeg',
+          './image/WechatIMG44.jpeg',
+          './image/WechatIMG45.jpeg',
+          './image/WechatIMG46.jpeg',
+          './image/WechatIMG47.jpeg',
+      ] }
+    },
+    mounted: function() {
+      document.addEventListener('click', function() {
+        document.getElementById('audio-el').play();
+      }, false);
+    }
+  })
+</script>
+</html>
